@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>FLORES</title>
+    <style>
+        /* Estilo básico y mejoras para la página */
+        body {
+            color: #fff;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1b18;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Grandes saludos con animación */
+        .greetings {
+            font-size: 6rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #fbff00;
+        }
+
+        .greetings > span {
+            animation: glow 2.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                color: #fff;
+                text-shadow: 0 0 12px #fbff00, 0 0 50px #fbff00, 0 0 100px #fbff00;
+            }
+            10%, 90% {
+                color: #696565;
+                text-shadow: none;
+            }
+        }
+
+        .description {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fbff00;
+            text-align: center;
+        }
+
+        /* Botones mejorados */
+        .button {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre botones */
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            background: linear-gradient(145deg, #ffc107, #ffeb3b); /* Gradiente */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(255, 235, 59, 0.3); /* Sombra */
+        }
+
+        button a {
+            text-decoration: none;
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* Efecto hover y movimiento suave */
+        button:hover {
+            background: linear-gradient(145deg, #ff9800, #ffc107); /* Gradiente cambia al pasar el mouse */
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.6), 0 0 30px rgba(255, 255, 0, 0.6); /* Efecto resplandor */
+            transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+        }
+
+        /* Animación para mover el botón "No, no lo quiero" */
+        #moveButton {
+            transition: transform 0.3s ease-in-out; /* Transición más fluida */
+        }
+
+        /* Responsividad para dispositivos móviles */
+        @media screen and (max-width: 574px) {
+            .greetings {
+                font-size: 3rem;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="greetings">
+        <span>H</span><span>O</span><span>L</span><span>A</span>
+        <span>C</span><span>A</span><span>R</span><span>M</span><span>E</span><span>N</span>
+    </div>
+
+    <div class="description">
+        <span>Ya debes saber Ingles jsjs!</span>
+        <span>So I have a gift for you!!</span>
+    </div>
+
+    <div class="button">
+        <button>
+            <a href="FLORES.html">Sí, lo quiero</a>
+        </button>
+        <button id="moveButton">
+            <a href="#">No, no lo quiero</a>
+        </button>
+    </div>
+
+    <script>
+        // Seleccionar el botón que debe moverse
+        const moveButton = document.getElementById('moveButton');
+
+        // Función que cambia la posición del botón aleatoriamente
+        function moveButtonRandomly() {
+            const randomX = Math.random() * 500 - 250;  // Rango de -250 a 250 px
+            const randomY = Math.random() * 500 - 250;  // Rango de -250 a 250 px
+
+            // Cambiar la posición del botón
+            moveButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Evento para mover el botón cuando el mouse pasa sobre él (para computadoras)
+        moveButton.addEventListener('mouseover', moveButtonRandomly);
+
+        // Evento para mover el botón cuando se toca en pantallas táctiles (para móviles)
+        moveButton.addEventListener('touchstart', moveButtonRandomly);
+
+        // También puedes agregar un evento de "click" para pantallas táctiles
+        moveButton.addEventListener('click', moveButtonRandomly);
+    </script>
+</body>
+</html>
